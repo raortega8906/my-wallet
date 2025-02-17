@@ -12,6 +12,9 @@
         .bg-primary { background-color: rgb(31 41 55 / var(--tw-text-opacity, 1)); }
         .text-primary { color: rgb(31 41 55 / var(--tw-text-opacity, 1)); }
         .hover\:text-primary-light:hover { color: #fff; }
+        .invert {
+            filter: invert(100%);
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
@@ -20,7 +23,8 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <a href="/" class="font-bold text-xl">
-                        {{ config('app.name', 'My Wallet') }}
+                        {{-- {{ config('app.name', 'My Wallet') }} --}}
+                        <img src="{{ asset('./assets/images/aplicacion-wallet-pass.webp') }}" alt="Logo" class="h-8 w-auto invert">
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -33,9 +37,9 @@
                         @auth
                             <a href="{{ url('/dashboard') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Dashboard') }}</a>
                         @else
-                            <a href="{{ route('login') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Iniciar sesión') }}</a>
+                            <a href="{{ route('login') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Login') }}</a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Registrarse') }}</a>
+                                <a href="{{ route('register') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Register') }}</a>
                             @endif
                         @endauth
                     @endif
