@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('./favicon.ico') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('./favicon.svg') }}">
     <title>My Wallet - Control Your Finances</title>
     @vite('resources/css/app.css')
     <style>
