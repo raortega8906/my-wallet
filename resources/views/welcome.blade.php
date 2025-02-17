@@ -6,7 +6,7 @@
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('./favicon.ico') }}">
     <link rel="icon" type="image/svg+xml" href="{{ asset('./favicon.svg') }}">
-    <title>My Wallet - Control Your Finances</title>
+    <title>My Wallet</title>
     @vite('resources/css/app.css')
     <style>
         .bg-primary { background-color: rgb(31 41 55 / var(--tw-text-opacity, 1)); }
