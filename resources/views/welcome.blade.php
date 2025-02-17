@@ -110,7 +110,7 @@
 
     <footer class="bg-primary text-white mt-16">
         <div class="container mx-auto px-4 py-6">
-            <p class="text-center text-white">&copy; {{ date('Y') }} {{ __('Desarrollado por') }}
+            <p class="text-center text-white">&copy; {{ date('Y') }} {{ __('Developed by') }}
                 <a class="hover:underline" href="https://portfolio.wpcache.es" target="_blank">{{ __('Rafael A. Ortega') }}</a>.
             </p>
         </div>
