@@ -98,7 +98,7 @@
                     <li>Target date</li>
                 </ul>
                 <p class="text-gray-600 mb-6">My Wallet will automatically determine your required monthly savings, taking into account your current financial situation and future goals.</p>
-                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded" role="alert">
+                <div class="bg-gray-100 border-l-4 border-gray-500 text-gray-700 p-4 rounded" role="alert">
                     <p class="font-bold">Example:</p>
                     <p>Goal: €35,000 by January 1, 2025</p>
                     <p>Current Savings: €5,000</p>
