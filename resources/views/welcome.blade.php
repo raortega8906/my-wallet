@@ -75,6 +75,32 @@
         </div>
     </div>
 
+    <!-- Nueva sección destacando el cálculo automático de ahorros -->
+    <div class="bg-white rounded-lg shadow-lg p-8 my-16 mx-4">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Smart Savings Calculator</h2>
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full md:w-1/2 px-4 mb-8">
+                <img src="{{ asset('./assets/images/dashboard.webp') }}" alt="Savings Calculator Illustration" class="rounded-lg shadow-md">
+            </div>
+            <div class="w-full md:w-1/2 px-4">
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Achieve Your Savings Goals</h3>
+                <p class="text-gray-600 mb-6">Our intelligent algorithm calculates exactly how much you need to save monthly to reach your financial goals. Simply input your:</p>
+                <ul class="list-disc list-inside text-gray-600 mb-6">
+                    <li>Current savings</li>
+                    <li>Savings goal amount</li>
+                    <li>Target date</li>
+                </ul>
+                <p class="text-gray-600 mb-6">My Wallet will automatically determine your required monthly savings, taking into account your current financial situation and future goals.</p>
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded" role="alert">
+                    <p class="font-bold">Example:</p>
+                    <p>Goal: €35,000 by January 1, 2025</p>
+                    <p>Current Savings: €5,000</p>
+                    <p>Recommended Monthly Savings: €750</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-primary text-white mt-16">
         <div class="container mx-auto px-4 py-6">
             <p class="text-center text-white">&copy; {{ date('Y') }} {{ __('Desarrollado por') }}
