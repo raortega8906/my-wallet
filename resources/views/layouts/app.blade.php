@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{{ asset('./favicon.ico') }}">
     <link rel="icon" type="image/svg+xml" href="{{ asset('./favicon.svg') }}">
-    <title>@yield('title', 'Panel de Notificaciones')</title>
+    <title>@yield('title', 'Dashboard')</title>
     @vite('resources/css/app.css')
     <style>
         .invert {
