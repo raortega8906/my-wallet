@@ -49,6 +49,21 @@
                 <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
                     {{ __('Dashboard') }}
                 </a>
+                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Nómina') }}
+                </a>
+                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Ahorros') }}
+                </a>
+                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Ingreso Adicional') }}
+                </a>
+                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Saldo Objetivo') }}
+                </a>
+                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Plazo') }}
+                </a>
                 {{-- Definir si habrá un panel de administración --}}
                 {{-- 
                 @if (Auth::check() && Auth::user()->is_admin)
