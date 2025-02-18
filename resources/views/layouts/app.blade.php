@@ -44,12 +44,13 @@
                 </svg>
                 <span class="text-2xl font-extrabold">{{ __('My Wallet') }}</span>
             </a>
-            {{-- Definir si habrá un panel de administración --}}
-            {{-- <nav>
+            
+            <nav>
                 <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
                     {{ __('Dashboard') }}
                 </a>
-
+                {{-- Definir si habrá un panel de administración --}}
+                {{-- 
                 @if (Auth::check() && Auth::user()->is_admin)
                     <div class="py-3 mt-6">
                         <span class="text-[25px] py-3 px-4 font-extrabold">{{ __('Panel Admin') }}</span>
@@ -57,8 +58,8 @@
                     <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
                         {{ __('Dashboard Admin') }}
                     </a>
-                @endif
-            </nav> --}}
+                @endif --}}
+            </nav>
         </div>
 
         <!-- Content -->
