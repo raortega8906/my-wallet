@@ -28,10 +28,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
         ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => Hash::make('test'),
-        ]);
+        // Comentar usuario tester hasta que se agregue el panel de administración
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        //     'password' => Hash::make('test'),
+        // ]);
     }
 }
