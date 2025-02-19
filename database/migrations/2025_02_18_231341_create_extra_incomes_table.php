@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('extra_incomes', function (Blueprint $table) {
             $table->id();
+            // tipo de ingreso
+            $table->string('name');
+            $table->string('description');
+            $table->decimal('amount', 10, 2);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

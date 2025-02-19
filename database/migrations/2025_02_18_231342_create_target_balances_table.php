@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('target_balances', function (Blueprint $table) {
             $table->id();
+            $table->decimal('target_balance', 10, 2);
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
