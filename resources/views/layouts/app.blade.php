@@ -46,27 +46,29 @@
             </a>
             
             <nav>
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                <a href="{{ route('dashboard') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
                     {{ __('Dashboard') }}
                 </a>
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                <a href="{{ route('payrolls.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
                     {{ __('Nómina') }}
                 </a>
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                <a href="{{ route('savings.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
                     {{ __('Ahorros') }}
                 </a>
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
-                    {{ __('Ingreso Adicional') }}
+                <a href="{{ route('expenses.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Gastos') }}
                 </a>
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                <a href="{{ route('extraincomes.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Ingresos Adicionales') }}
+                </a>
+                <a href="{{ route('targetbalances.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
                     {{ __('Saldo Objetivo') }}
                 </a>
-                <a href="" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
-                    {{ __('Plazo') }}
+                <a href="{{ route('deadlines.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+                    {{ __('Plazo Objetivo') }}
                 </a>
                 {{-- Definir si habrá un panel de administración --}}
-                {{-- 
-                @if (Auth::check() && Auth::user()->is_admin)
+                {{-- @if (Auth::check() && Auth::user()->is_admin)
                     <div class="py-3 mt-6">
                         <span class="text-[25px] py-3 px-4 font-extrabold">{{ __('Panel Admin') }}</span>
                     </div>

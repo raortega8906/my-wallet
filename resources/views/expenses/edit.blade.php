@@ -5,5 +5,5 @@
 @section('header', 'Dashboard')
 
 @section('content')
-    Edit Deadline
+    Edit Expense
 @endsection
