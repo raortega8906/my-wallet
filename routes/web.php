@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\DeadlineController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\ExtraIncomeController;
+use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SavingController;
+use App\Http\Controllers\TargetBalanceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,15 +30,15 @@ Route::get('deadlines', [DeadlineController::class, 'index'])->name('deadlines.i
 Route::get('expenses', [ExpenseController::class, 'index'])->name('expenses.index');
 
 // Rutas Entradas Extras
-Route::get('extraincomes', [ExpenseController::class, 'index'])->name('extraincomes.index');
+Route::get('extraincomes', [ExtraIncomeController::class, 'index'])->name('extraincomes.index');
 
 // Rutas Nómina
-Route::get('payrolls', [ExpenseController::class, 'index'])->name('payrolls.index');
+Route::get('payrolls', [PayrollController::class, 'index'])->name('payrolls.index');
 
 // Rutas Ahorros
-Route::get('savings', [ExpenseController::class, 'index'])->name('savings.index');
+Route::get('savings', [SavingController::class, 'index'])->name('savings.index');
 
 // Rutas Saldo Objetivo
-Route::get('targetbalances', [ExpenseController::class, 'index'])->name('targetbalances.index');
+Route::get('targetbalances', [TargetBalanceController::class, 'index'])->name('targetbalances.index');
 
 require __DIR__.'/auth.php';
