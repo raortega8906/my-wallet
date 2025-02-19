@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('deadlines', function (Blueprint $table) {
             $table->id();
-            // fecha de vencimiento
             $table->date('deadline');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
