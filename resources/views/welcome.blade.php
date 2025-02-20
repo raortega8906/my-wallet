@@ -6,7 +6,7 @@
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('./favicon.ico') }}">
     <link rel="icon" type="image/svg+xml" href="{{ asset('./favicon.svg') }}">
-    <title>My Wallet</title>
+    <title>{{ __('My Wallet') }}</title>
     @vite('resources/css/app.css')
     <style>
         .bg-primary { background-color: rgb(31 41 55 / var(--tw-text-opacity, 1)); }
@@ -23,8 +23,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <a href="/" class="font-bold text-xl">
-                        {{-- {{ config('app.name', 'My Wallet') }} --}}
-                        <img src="{{ asset('./assets/images/aplicacion-wallet-pass.webp') }}" alt="Logo" class="h-8 w-auto invert">
+                        <img src="{{ asset('./assets/images/aplicacion-wallet-pass.webp') }}" alt="{{ __('Logo') }}" class="h-8 w-auto invert">
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -37,9 +36,9 @@
                         @auth
                             <a href="{{ url('/dashboard') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Dashboard') }}</a>
                         @else
-                            <a href="{{ route('login') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Login') }}</a>
+                            <a href="{{ route('login') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Iniciar sesión') }}</a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Register') }}</a>
+                                <a href="{{ route('register') }}" class="text-sm font-medium hover:text-primary-light">{{ __('Registrarse') }}</a>
                             @endif
                         @endauth
                     @endif
@@ -50,59 +49,59 @@
 
     <div class="container mx-auto px-4 py-16">
         <div class="text-center">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to My Wallet</h1>
-            <p class="text-xl text-gray-600 mb-8">Take control of your finances with ease</p>
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ __('Bienvenido a My Wallet') }}</h1>
+            <p class="text-xl text-gray-600 mb-8">{{ __('Toma el control de tus finanzas con facilidad') }}</p>
         </div>
 
         <div class="flex flex-wrap -mx-4 justify-center">
             <div class="w-full md:w-1/3 px-4 mb-8">
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Track Expenses</h2>
-                    <p class="text-gray-600">Easily log and categorize your daily expenses to understand your spending habits.</p>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ __('Seguimiento de Gastos') }}</h2>
+                    <p class="text-gray-600">{{ __('Registra y categoriza tus gastos diarios para comprender mejor tus hábitos de consumo.') }}</p>
                 </div>
             </div>
             <div class="w-full md:w-1/3 px-4 mb-8">
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Set Savings Goals</h2>
-                    <p class="text-gray-600">Define and track your savings goals with our intuitive goal-setting feature.</p>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ __('Establecer Metas de Ahorro') }}</h2>
+                    <p class="text-gray-600">{{ __('Define y sigue tus metas de ahorro con nuestra función intuitiva.') }}</p>
                 </div>
             </div>
             <div class="w-full md:w-1/3 px-4 mb-8">
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Visualize Progress</h2>
-                    <p class="text-gray-600">See your financial progress at a glance with our easy-to-understand charts and graphs.</p>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ __('Visualizar Progreso') }}</h2>
+                    <p class="text-gray-600">{{ __('Observa tu progreso financiero con nuestros reportes fáciles de entender.') }}</p>
                 </div>
             </div>
         </div>
 
         <div class="text-center mt-8">
             <a href="{{ route('register') }}" class="bg-primary text-white font-bold py-2 px-4 rounded-full transition duration-300">
-                Get Started Now
+                {{ __('Comenzar ahora') }}
             </a>
         </div>
     </div>
 
     <!-- Nueva sección destacando el cálculo automático de ahorros -->
     <div class="bg-white rounded-lg shadow-lg p-8 my-16 mx-4">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Smart Savings Calculator</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">{{ __('Calculadora de Ahorros Inteligentes') }}</h2>
         <div class="flex flex-wrap -mx-4">
             <div class="w-full md:w-1/2 px-4 mb-8">
-                <img src="{{ asset('./assets/images/dashboard.webp') }}" alt="Savings Calculator Illustration" class="rounded-lg shadow-md">
+                <img src="{{ asset('./assets/images/dashboard.webp') }}" alt="{{ __('Ilustración de la Calculadora de Ahorros') }}" class="rounded-lg shadow-md">
             </div>
             <div class="w-full md:w-1/2 px-4">
-                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Achieve Your Savings Goals</h3>
-                <p class="text-gray-600 mb-6">Our intelligent algorithm calculates exactly how much you need to save monthly to reach your financial goals. Simply input your:</p>
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Alcanza tus metas de ahorro') }}</h3>
+                <p class="text-gray-600 mb-6">{{ __('Nuestro algoritmo inteligente calcula exactamente cuánto necesitas ahorrar mensualmente para alcanzar tus metas financieras. Simplemente ingresa tu:') }}</p>
                 <ul class="list-disc list-inside text-gray-600 mb-6">
-                    <li>Current savings</li>
-                    <li>Savings goal amount</li>
-                    <li>Target date</li>
+                    <li>{{ __('Ahorros actuales') }}</li>
+                    <li>{{ __('Monto de la meta de ahorro') }}</li>
+                    <li>{{ __('Fecha objetivo') }}</li>
                 </ul>
-                <p class="text-gray-600 mb-6">My Wallet will automatically determine your required monthly savings, taking into account your current financial situation and future goals.</p>
+                <p class="text-gray-600 mb-6">{{ __('My Wallet determinará automáticamente tu ahorro mensual requerido, teniendo en cuenta tu situación financiera actual y tus metas futuras.') }}</p>
                 <div class="bg-gray-100 border-l-4 border-gray-500 text-gray-700 p-4 rounded" role="alert">
-                    <p class="font-bold">Example:</p>
-                    <p>Goal: €35,000 by January 1, 2025</p>
-                    <p>Current Savings: €5,000</p>
-                    <p>Recommended Monthly Savings: €750</p>
+                    <p class="font-bold">{{ __('Ejemplo:') }}</p>
+                    <p>{{ __('Meta: €35,000 para el 1 de enero de 2025') }}</p>
+                    <p>{{ __('Ahorros actuales: €5,000') }}</p>
+                    <p>{{ __('Ahorro mensual recomendado: €750') }}</p>
                 </div>
             </div>
         </div>
@@ -110,11 +109,10 @@
 
     <footer class="bg-primary text-white mt-16">
         <div class="container mx-auto px-4 py-6">
-            <p class="text-center text-white">&copy; {{ date('Y') }} {{ __('Developed by') }}
+            <p class="text-center text-white">&copy; {{ date('Y') }} {{ __('Desarrollado por') }}
                 <a class="hover:underline" href="https://portfolio.wpcache.es" target="_blank">{{ __('Rafael A. Ortega') }}</a>.
             </p>
         </div>
     </footer>
 </body>
 </html>
-
