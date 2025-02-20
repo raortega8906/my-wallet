@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Nómina')
 
-@section('header', 'Dashboard')
+@section('header', 'Nómina')
 
 @section('content')
 
-    <!-- Nóminas -->
+    <!-- Nómina -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
         <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Gestión de Salarios') }}</h2>
         <table class="min-w-full divide-y divide-gray-200">
