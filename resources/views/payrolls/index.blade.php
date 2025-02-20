@@ -7,7 +7,7 @@
 @section('content')
 
     @foreach ($payrolls as $payroll)
-        <p>{{ $payroll->amount }}<p>    
+        {{ number_format($payroll->amount, 2) }}€  
     @endforeach
 
 @endsection

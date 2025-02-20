@@ -5,5 +5,63 @@
 @section('header', 'Dashboard')
 
 @section('content')
-    Dashboard
+    <h1 class="text-3xl font-bold text-gray-800 mb-8">{{ __('My Wallet') }}</h1>
+            
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Nómina -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Nómina</h2>
+            {{-- <p class="text-2xl font-bold text-green-600">€{{ number_format($salary, 2) }}</p> --}}
+            <p class="text-2xl font-bold text-green-600">1,390.00€</p>
+        </div>
+        
+        <!-- Gastos -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Gastos Totales</h2>
+            {{-- <p class="text-2xl font-bold text-red-600">€{{ number_format($totalExpenses, 2) }}</p> --}}
+            <p class="text-2xl font-bold text-red-600">1,200.00€</p>
+        </div>
+        
+        <!-- Entradas Extras -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Entradas Extras</h2>
+            {{-- <p class="text-2xl font-bold text-blue-600">€{{ number_format($extraIncomes, 2) }}</p> --}}
+            <p class="text-2xl font-bold text-blue-600">200.00€</p>
+        </div>
+        
+        <!-- Ahorros Actuales -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Ahorros Actuales</h2>
+            <p class="text-2xl font-bold text-purple-600">250.00€</p>
+            {{-- <p class="text-2xl font-bold text-purple-600">€{{ number_format($currentSavings, 2) }}</p> --}}
+        </div>
+        
+        <!-- Objetivo de Ahorro -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Objetivo de Ahorro</h2>
+            <p class="text-2xl font-bold text-indigo-600">35,000.00€</p>
+            <p class="text-sm text-gray-500 mt-2">Para el 1 de enero de 2025</p>
+        </div>
+        
+        <!-- Ahorro Mensual Recomendado -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Ahorro Mensual Recomendado</h2>
+            <p class="text-2xl font-bold text-orange-600">800€</p>
+            {{-- <p class="text-2xl font-bold text-orange-600">€{{ number_format($monthlySavingsNeeded, 2) }}</p> --}}
+        </div>
+    </div>
+
+    <!-- Gráfico de Progreso -->
+    <div class="mt-12 bg-white rounded-lg shadow p-6">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Progreso de Ahorro</h2>
+        <div class="relative pt-1">
+            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                <div style="width:{{ (250 / 35000) * 100 }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+            </div>
+            <div class="flex justify-between text-xs text-gray-600">
+                <span>250€</span>
+                <span>35,000€</span>
+            </div>
+        </div>
+    </div>
 @endsection
