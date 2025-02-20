@@ -99,7 +99,7 @@
                 <p class="text-gray-600 mb-6">{{ __('My Wallet determinará automáticamente tu ahorro mensual requerido, teniendo en cuenta tu situación financiera actual y tus metas futuras.') }}</p>
                 <div class="bg-gray-100 border-l-4 border-gray-500 text-gray-700 p-4 rounded" role="alert">
                     <p class="font-bold">{{ __('Ejemplo:') }}</p>
-                    <p>{{ __('Meta: €35,000 para el 1 de enero de 2025') }}</p>
+                    <p>{{ __('Meta: €35,000 para el 1 de enero de 2030') }}</p>
                     <p>{{ __('Ahorros actuales: €5,000') }}</p>
                     <p>{{ __('Ahorro mensual recomendado: €750') }}</p>
                 </div>

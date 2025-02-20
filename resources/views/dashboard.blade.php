@@ -5,7 +5,7 @@
 @section('header', 'Dashboard')
 
 @section('content')
-    <h1 class="text-3xl font-bold text-gray-800 mb-8">{{ __('My Wallet') }}</h1>
+    <h1 class="text-3xl font-bold text-gray-800 mb-8">{{ __('Mi billetera') }}</h1>
             
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Nómina -->
@@ -36,13 +36,13 @@
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Objetivo de Ahorro') }}</h2>
             <p class="text-2xl font-bold text-indigo-600">{{ __('€35,000.00') }}</p>
-            <p class="text-sm text-gray-500 mt-2">{{ __('Para el 1 de enero de 2025') }}</p>
+            <p class="text-sm text-gray-500 mt-2">{{ __('Para el 1 de enero de 2030') }}</p>
         </div>
         
         <!-- Ahorro Mensual Recomendado -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Ahorro Mensual Recomendado') }}</h2>
-            <p class="text-2xl font-bold text-orange-600">{{ __('€800') }}</p>
+            <p class="text-2xl font-bold text-orange-600">{{ __('€580') }}</p>
         </div>
     </div>
 
