@@ -54,7 +54,7 @@
                 <div style="width:{{ (200 / 35000) * 100 }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
             </div>
             <div class="flex justify-between text-xs text-gray-600">
-                <span>{{ __('€200') }}</span>
+                <span>{{ __('€0') }}</span>
                 <span>{{ __('€35,000') }}</span>
             </div>
         </div>
