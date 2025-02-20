@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Payroll;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin'),
+        ]);
+
+        Payroll::factory()->create([
+            'name' => 'Nómina',
+            'amount' => 1390.00,
+            'user_id' => 1,
         ]);
 
         // Comentar usuario tester hasta que se agregue el panel de administración
