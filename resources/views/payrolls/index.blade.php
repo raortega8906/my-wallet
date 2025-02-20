@@ -5,5 +5,9 @@
 @section('header', 'Dashboard')
 
 @section('content')
-    Index Payroll
+
+    @foreach ($payrolls as $payroll)
+        <p>{{ $payroll->amount }}<p>    
+    @endforeach
+
 @endsection
