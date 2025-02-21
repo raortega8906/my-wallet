@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Deadline;
+use App\Models\Expense;
+use App\Models\ExtraIncome;
 use App\Models\Payroll;
+use App\Models\Saving;
+use App\Models\TargetBalance;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -28,9 +33,38 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
         ]);
 
+        Deadline::factory()->create([
+            'deadline' => '2030-01-01',
+            'user_id' => 1,
+        ]);
+
+        Expense::factory()->create([
+            'name' => 'Gasto',
+            'description' => 'Gastos de la semana',
+            'amount' => 100.00,
+            'user_id' => 1,
+        ]);
+
+        ExtraIncome::factory()->create([
+            'name' => 'Ingreso',
+            'description' => 'Ingreso de hostelería',
+            'amount' => 100.00,
+            'user_id' => 1,
+        ]);
+
         Payroll::factory()->create([
             'name' => 'Nómina',
             'amount' => 1390.00,
+            'user_id' => 1,
+        ]);
+
+        Saving::factory()->create([
+            'amount' => 200.00,
+            'user_id' => 1,
+        ]);
+
+        TargetBalance::factory()->create([
+            'target_balance' => 35000.00,
             'user_id' => 1,
         ]);
 
