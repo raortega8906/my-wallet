@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
 
 // Rutas Plazos
 Route::get('deadlines', [DeadlineController::class, 'index'])->name('deadlines.index');
+Route::get('deadlines/create', [DeadlineController::class, 'create'])->name('deadlines.create');
 
 // Rutas Gastos
 Route::get('expenses', [ExpenseController::class, 'index'])->name('expenses.index');

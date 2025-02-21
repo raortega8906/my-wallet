@@ -6,6 +6,8 @@
 
 @section('content')
 
+    <a href="{{ route('deadlines.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear plazo objetivo') }}</a>
+
     <!-- Fecha objetivo -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
         <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Gestión de plazo objetivo') }}</h2>

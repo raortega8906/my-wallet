@@ -13,4 +13,9 @@ class DeadlineController extends Controller
 
         return view('deadlines.index', ['deadlines' => $deadlines]);
     }
+
+    public function create () 
+    {
+        return view('deadlines.create');
+    }
 }
