@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Deadline;
 use Illuminate\Http\Request;
 
 class DeadlineController extends Controller
 {
     public function index ()
     {
-        return view('deadlines.index');
+        $deadlines = Deadline::all();
+
+        return view('deadlines.index', ['deadlines' => $deadlines]);
     }
 }

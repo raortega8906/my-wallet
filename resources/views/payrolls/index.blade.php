@@ -8,7 +8,7 @@
 
     <!-- Nómina -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
-        <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Gestión de Salarios') }}</h2>
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Gestión de salarios') }}</h2>
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
