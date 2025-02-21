@@ -26,7 +26,7 @@
                         {{ __('Cancelar') }}
                     </a>
                     {{ __('|') }} &nbsp;&nbsp;
-                    <button type="submit" class="text-green-600 hover:text-green-900 mr-3>
+                    <button type="submit" class="text-green-600 hover:text-green-900 mr-3">
                         {{ __('Actualizar Plazo Objetivo') }}
                     </button>
                 </div>

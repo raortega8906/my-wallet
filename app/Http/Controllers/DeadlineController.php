@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDeadlineRequest;
+use App\Http\Requests\UpdateDeadlineRequest;
 use App\Models\Deadline;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,9 +44,13 @@ class DeadlineController extends Controller
         return view('deadlines.edit', compact('deadline'));
     }
 
-    public function update ()
+    public function update (UpdateDeadlineRequest $request, Deadline $deadline)
     {
-        //
+        $validate = $request->validated();
+
+        $deadline->update($validate);
+
+        return redirect()->route('deadlines.index');
     }
 
     public function destroy ()
