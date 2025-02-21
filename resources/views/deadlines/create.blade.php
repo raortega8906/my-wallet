@@ -9,7 +9,7 @@
     <!-- Crear plazo objetivo -->
     <div class="container mx-auto px-4 py-8">
         <div class="bg-white rounded-lg shadow p-6">
-            <form action="" method="POST">
+            <form action="{{ route('deadlines.store') }}" method="POST">
                 @csrf
                 <div class="mb-4">
                     <label for="deadline" class="block text-sm font-medium text-gray-700 mb-2">

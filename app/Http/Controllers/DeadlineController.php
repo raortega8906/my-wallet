@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreDeadlineRequest;
 use App\Models\Deadline;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DeadlineController extends Controller
 {
@@ -11,7 +12,7 @@ class DeadlineController extends Controller
     {
         $deadlines = Deadline::all();
 
-        return view('deadlines.index', ['deadlines' => $deadlines]);
+        return view('deadlines.index', compact('deadlines'));
     }
 
     public function create () 
@@ -19,14 +20,18 @@ class DeadlineController extends Controller
         return view('deadlines.create');
     }
 
-    public function store ()
+    public function store (StoreDeadlineRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['user_id'] = Auth::user()->id;
+        Deadline::create($validated);
+        
+        return redirect()->route('deadlines.index');
     }
 
     public function edit (Deadline $deadline)
     {
-        return view('deadlines.edit', ['deadlines' => $deadline]);
+        return view('deadlines.edit', compact('deadline'));
     }
 
     public function update ()

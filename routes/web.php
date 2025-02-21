@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
 Route::get('deadlines', [DeadlineController::class, 'index'])->name('deadlines.index');
 Route::get('deadlines/create', [DeadlineController::class, 'create'])->name('deadlines.create');
 Route::get('deadlines/{deadline}/edit', [DeadlineController::class, 'edit'])->name('deadlines.edit');
+Route::post('deadlines/', [DeadlineController::class, 'store'])->name('deadlines.store');
 
 // Rutas Gastos
 Route::get('expenses', [ExpenseController::class, 'index'])->name('expenses.index');
