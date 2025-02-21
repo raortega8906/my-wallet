@@ -28,7 +28,7 @@ Route::get('deadlines', [DeadlineController::class, 'index'])->name('deadlines.i
 Route::get('deadlines/create', [DeadlineController::class, 'create'])->name('deadlines.create');
 Route::get('deadlines/{deadline}/edit', [DeadlineController::class, 'edit'])->name('deadlines.edit');
 Route::post('deadlines', [DeadlineController::class, 'store'])->name('deadlines.store');
-Route::put('deadlines', [DeadlineController::class, 'update'])->name('deadlines.update');
+Route::put('deadlines/{deadline}', [DeadlineController::class, 'update'])->name('deadlines.update');
 
 // Rutas Gastos
 Route::get('expenses', [ExpenseController::class, 'index'])->name('expenses.index');
