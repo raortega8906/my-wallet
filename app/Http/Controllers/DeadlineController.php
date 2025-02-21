@@ -22,11 +22,20 @@ class DeadlineController extends Controller
 
     public function store (StoreDeadlineRequest $request)
     {
-        $validated = $request->validated();
-        $validated['user_id'] = Auth::user()->id;
-        Deadline::create($validated);
-        
-        return redirect()->route('deadlines.index');
+        $deadlines = Deadline::all()->count();
+
+        if ($deadlines > 0) {
+           return redirect()->route('deadlines.index');     
+        }
+        else {
+
+            $validated = $request->validated();
+            $validated['user_id'] = Auth::user()->id;
+            
+            Deadline::create($validated);
+            
+            return redirect()->route('deadlines.index');
+        }
     }
 
     public function edit (Deadline $deadline)
