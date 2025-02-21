@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TargetBalance extends Model
 {
+    use HasFactory;
+    
     protected $fillable = [
         'target_balance',
         'user_id',
