@@ -18,4 +18,9 @@ class DeadlineController extends Controller
     {
         return view('deadlines.create');
     }
+
+    public function edit (Deadline $deadline)
+    {
+        return view('deadlines.edit', ['deadlines' => $deadline]);
+    }
 }
