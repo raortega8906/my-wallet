@@ -53,8 +53,10 @@ class DeadlineController extends Controller
         return redirect()->route('deadlines.index');
     }
 
-    public function destroy ()
+    public function destroy (Deadline $deadline)
     {
-        //
+        $deadline->delete();
+
+        return view('deadline.index', compact('deadline'));
     }
 }

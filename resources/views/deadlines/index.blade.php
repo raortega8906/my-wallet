@@ -26,7 +26,13 @@
                     <td class="px-6 py-4 whitespace-nowrap">{{ $deadline->deadline }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <a href="{{ route('deadlines.edit', $deadline) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
-                        <a href="#" class="text-red-600 hover:text-red-900">{{ __('Eliminar') }}</a>
+                        <form action="{{ route('deadlines.delete', $deadline) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="alert('Deadline eliminado')">
+                                {{ __('Eliminar') }}
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
