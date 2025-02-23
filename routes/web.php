@@ -50,6 +50,11 @@ Route::delete('extraincomes/{extraincome}', [ExtraIncomeController::class, 'dest
 
 // Rutas Nómina
 Route::get('payrolls', [PayrollController::class, 'index'])->name('payrolls.index');
+Route::get('payrolls/create', [PayrollController::class, 'create'])->name('payrolls.create');
+Route::post('payrolls', [PayrollController::class, 'store'])->name('payrolls.store');
+Route::get('payrolls/{payroll}/edit', [PayrollController::class, 'edit'])->name('payrolls.edit');
+Route::put('payrolls/{payroll}', [PayrollController::class, 'update'])->name('payrolls.update');
+Route::delete('payrolls/{payroll}', [PayrollController::class, 'destroy'])->name('payrolls.delete');
 
 // Rutas Ahorros
 Route::get('savings', [SavingController::class, 'index'])->name('savings.index');
