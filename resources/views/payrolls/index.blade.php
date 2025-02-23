@@ -23,7 +23,7 @@
                 @foreach ($payrolls as $payroll)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ __('Nómina') }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ number_format($payroll->amount, 2) }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ __('€')}}{{ number_format($payroll->amount, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center">
                         <a href="{{ route('payrolls.edit', $payroll) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
                         <form action="{{ route('payrolls.delete', $payroll) }}" method="POST">

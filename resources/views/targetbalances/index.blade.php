@@ -23,7 +23,7 @@
                 @foreach ($targetbalances as $targetbalance)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ __('Saldo objetivo') }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ number_format($targetbalance->target_balance, 2) }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ __('€')}}{{ number_format($targetbalance->target_balance, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center">
                         <a href="{{ route('targetbalances.edit', $targetbalance) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
                         <form action="{{ route('targetbalances.delete', $targetbalance) }}" method="POST">

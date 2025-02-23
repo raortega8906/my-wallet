@@ -25,10 +25,10 @@ class TargetBalanceController extends Controller
     {
         $targetbalances = TargetBalance::all()->count();
 
-        // if ($targetbalances > 0) {
-        //    return redirect()->route('targetbalances.index');     
-        // }
-        // else {
+        if ($targetbalances > 0) {
+           return redirect()->route('targetbalances.index');     
+        }
+        else {
             $validated = $request->validated();
             $validated['name'] = 'Target test';
             $validated['user_id'] = Auth::user()->id;
@@ -36,7 +36,7 @@ class TargetBalanceController extends Controller
             TargetBalance::create($validated);
             
             return redirect()->route('targetbalances.index');
-        // }
+        }
     }
 
     public function edit (TargetBalance $targetbalance)
