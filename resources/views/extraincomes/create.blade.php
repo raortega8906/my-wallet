@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', ' Crear plazo objetivo')
+@section('title', ' Crear pago extra')
 
-@section('header', 'Crear plazo objetivo')
+@section('header', 'Crear pago extra')
 
 @section('content')
 
