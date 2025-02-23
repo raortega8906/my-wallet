@@ -7,6 +7,7 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SavingController;
 use App\Http\Controllers\TargetBalanceController;
+use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,8 +27,8 @@ Route::middleware('auth')->group(function () {
 // Rutas Plazos
 Route::get('deadlines', [DeadlineController::class, 'index'])->name('deadlines.index');
 Route::get('deadlines/create', [DeadlineController::class, 'create'])->name('deadlines.create');
-Route::get('deadlines/{deadline}/edit', [DeadlineController::class, 'edit'])->name('deadlines.edit');
 Route::post('deadlines', [DeadlineController::class, 'store'])->name('deadlines.store');
+Route::get('deadlines/{deadline}/edit', [DeadlineController::class, 'edit'])->name('deadlines.edit');
 Route::put('deadlines/{deadline}', [DeadlineController::class, 'update'])->name('deadlines.update');
 Route::delete('deadlines/{deadline}', [DeadlineController::class, 'destroy'])->name('deadlines.delete');
 
@@ -35,6 +36,9 @@ Route::delete('deadlines/{deadline}', [DeadlineController::class, 'destroy'])->n
 Route::get('expenses', [ExpenseController::class, 'index'])->name('expenses.index');
 Route::get('expenses/create', [ExpenseController::class, 'create'])->name('expenses.create');
 Route::post('expenses', [ExpenseController::class, 'store'])->name('expenses.store');
+Route::get('expenses/{expense}/edit', [ExpenseController::class, 'edit'])->name('expenses.edit');
+Route::put('expenses/{expense}', [ExpenseController::class, 'update'])->name('expenses.update');
+Route::delete('expenses/{expense}', [ExpenseController::class, 'destroy'])->name('expenses.delete');
 
 // Rutas Entradas Extras
 Route::get('extraincomes', [ExtraIncomeController::class, 'index'])->name('extraincomes.index');

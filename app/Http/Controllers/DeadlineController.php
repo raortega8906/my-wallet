@@ -57,6 +57,6 @@ class DeadlineController extends Controller
     {
         $deadline->delete();
 
-        return redirect()->route('deadlines.index')->with('success', 'Deadline eliminado');
+        return redirect()->route('deadlines.index')->with('success', 'Fecha objetivo eliminada');
     }
 }

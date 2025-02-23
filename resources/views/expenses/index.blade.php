@@ -26,9 +26,15 @@
                     <td class="px-6 py-4 whitespace-nowrap">{{ $expense->name }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $expense->description }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ __('€')}}{{ number_format($expense->amount, 2) }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
-                        <a href="#" class="text-red-600 hover:text-red-900">{{ __('Eliminar') }}</a>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center">
+                        <a href="{{ route('expenses.edit', $expense) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
+                        <form action="{{ route('expenses.delete', $expenses) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button href="{{ route('expenses.delete', $expense) }}" class="text-red-600 hover:text-red-900">
+                                {{ __('Eliminar') }}
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
