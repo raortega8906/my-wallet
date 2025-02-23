@@ -42,6 +42,11 @@ Route::delete('expenses/{expense}', [ExpenseController::class, 'destroy'])->name
 
 // Rutas Entradas Extras
 Route::get('extraincomes', [ExtraIncomeController::class, 'index'])->name('extraincomes.index');
+Route::get('extraincomes/create', [ExtraIncomeController::class, 'create'])->name('extraincomes.create');
+Route::post('extraincomes', [ExtraIncomeController::class, 'store'])->name('extraincomes.store');
+Route::get('extraincomes/{extraincome}/edit', [ExtraIncomeController::class, 'edit'])->name('extraincomes.edit');
+Route::put('extraincomes/{extraincome}', [ExtraIncomeController::class, 'update'])->name('extraincomes.update');
+Route::delete('extraincomes/{extraincome}', [ExtraIncomeController::class, 'destroy'])->name('extraincomes.delete');
 
 // Rutas Nómina
 Route::get('payrolls', [PayrollController::class, 'index'])->name('payrolls.index');
