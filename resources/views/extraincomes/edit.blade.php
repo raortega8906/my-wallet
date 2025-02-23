@@ -44,7 +44,7 @@
                     </a>
                     {{ __('|') }} &nbsp;&nbsp;
                     <button type="submit" class="text-green-600 hover:text-green-900 mr-3">
-                        {{ __('Actualizar Gasto') }}
+                        {{ __('Actualizar Ingresos Extras') }}
                     </button>
                 </div>
             </form>

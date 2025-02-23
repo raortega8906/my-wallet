@@ -6,11 +6,11 @@
 
 @section('content')
        
-<a href="{{ route('extraincomes.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear gasto') }}</a>
+<a href="{{ route('extraincomes.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear ingreso extra') }}</a>
     
 <!-- Pagos extras -->
 <div class="mt-12 bg-white rounded-lg shadow p-6">
-    <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Gestión de gastos') }}</h2>
+    <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Gestión de ingresos extras') }}</h2>
     <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
             <tr>
