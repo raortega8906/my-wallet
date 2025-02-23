@@ -33,6 +33,8 @@ Route::delete('deadlines/{deadline}', [DeadlineController::class, 'destroy'])->n
 
 // Rutas Gastos
 Route::get('expenses', [ExpenseController::class, 'index'])->name('expenses.index');
+Route::get('expenses/create', [ExpenseController::class, 'create'])->name('expenses.create');
+Route::post('expenses', [ExpenseController::class, 'store'])->name('expenses.store');
 
 // Rutas Entradas Extras
 Route::get('extraincomes', [ExtraIncomeController::class, 'index'])->name('extraincomes.index');

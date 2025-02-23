@@ -5,6 +5,8 @@
 @section('header', 'Gastos')
 
 @section('content')
+
+    <a href="{{ route('expenses.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear gasto') }}</a>
     
     <!-- Gastos -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
@@ -23,7 +25,7 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $expense->name }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $expense->description }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ number_format($expense->amount, 2) }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ __('€')}}{{ number_format($expense->amount, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
                         <a href="#" class="text-red-600 hover:text-red-900">{{ __('Eliminar') }}</a>
