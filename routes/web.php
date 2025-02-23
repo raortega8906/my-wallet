@@ -66,5 +66,10 @@ Route::delete('savings/{saving}', [SavingController::class, 'destroy'])->name('s
 
 // Rutas Saldo Objetivo
 Route::get('targetbalances', [TargetBalanceController::class, 'index'])->name('targetbalances.index');
+Route::get('targetbalances/create', [TargetBalanceController::class, 'create'])->name('targetbalances.create');
+Route::post('targetbalances', [TargetBalanceController::class, 'store'])->name('targetbalances.store');
+Route::get('targetbalances/{targetbalance}/edit', [TargetBalanceController::class, 'edit'])->name('targetbalances.edit');
+Route::put('targetbalances/{targetbalance}', [TargetBalanceController::class, 'update'])->name('targetbalances.update');
+Route::delete('targetbalances/{targetbalance}', [TargetBalanceController::class, 'destroy'])->name('targetbalances.delete');
 
 require __DIR__.'/auth.php';
