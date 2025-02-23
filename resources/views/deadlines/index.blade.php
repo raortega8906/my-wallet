@@ -24,7 +24,7 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ __('Fecha objetivo') }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $deadline->deadline }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center">
                         <a href="{{ route('deadlines.edit', $deadline) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
                         <form action="{{ route('deadlines.delete', $deadline) }}" method="POST">
                             @csrf
