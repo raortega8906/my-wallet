@@ -58,6 +58,11 @@ Route::delete('payrolls/{payroll}', [PayrollController::class, 'destroy'])->name
 
 // Rutas Ahorros
 Route::get('savings', [SavingController::class, 'index'])->name('savings.index');
+Route::get('savings/create', [SavingController::class, 'create'])->name('savings.create');
+Route::post('savings', [SavingController::class, 'store'])->name('savings.store');
+Route::get('savings/{saving}/edit', [SavingController::class, 'edit'])->name('savings.edit');
+Route::put('savings/{saving}', [SavingController::class, 'update'])->name('savings.update');
+Route::delete('savings/{saving}', [SavingController::class, 'destroy'])->name('savings.delete');
 
 // Rutas Saldo Objetivo
 Route::get('targetbalances', [TargetBalanceController::class, 'index'])->name('targetbalances.index');

@@ -14,7 +14,7 @@
                 @method('PUT')
                 <div class="mb-4">
                     <label for="amount" class="block text-sm font-medium text-gray-700 mb-2">
-                        {{ __('Fecha Objetivo') }}
+                        {{ __('Monto') }}
                     </label>
                     <input type="num" name="amount" id="amount" required
                         value="{{ $payroll->amount }}"
