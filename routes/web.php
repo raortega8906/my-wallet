@@ -13,6 +13,7 @@ use App\Models\ExtraIncome;
 use App\Models\Payroll;
 use App\Models\Saving;
 use App\Models\TargetBalance;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ Route::get('/', function () {
 
 // De momento crearé la lógica aquí para mostrar info en el dashboard
 Route::get('/dashboard', function () {
+
+    // Datos para el dashboard
     $payroll = Payroll::where('user_id', Auth::user()->id)->latest()->first();
     $expense_total = Expense::where('user_id', Auth::user()->id)->sum('amount');
     $extraincome_total = ExtraIncome::where('user_id', Auth::user()->id)->sum('amount');
@@ -29,7 +32,17 @@ Route::get('/dashboard', function () {
     $targetbalance_total = TargetBalance::where('user_id', Auth::user()->id)->sum('target_balance');
     $deadline = Deadline::where('user_id', Auth::user()->id)->latest()->first();
 
-    return view('dashboard', compact('payroll', 'expense_total', 'extraincome_total', 'savings_total', 'targetbalance_total', 'deadline'));
+    // Ahorro Mensual Recomendado
+    $now = Carbon::now();
+    $deadline_date = Carbon::parse($deadline->deadline);
+    $months = round($deadline_date->diffInMonths($now)) * -1;
+    $target_balance_diference = $targetbalance_total - $savings_total;
+    $savinng_recommended = $target_balance_diference / $months;
+
+    // Progresso de Ahorro
+    $progress = ($savings_total / $targetbalance_total) * 100;
+
+    return view('dashboard', compact('payroll', 'expense_total', 'extraincome_total', 'savings_total', 'targetbalance_total', 'deadline', 'savinng_recommended', 'progress'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

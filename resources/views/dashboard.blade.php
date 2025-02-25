@@ -42,7 +42,7 @@
         <!-- Ahorro Mensual Recomendado -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Ahorro Mensual Recomendado') }}</h2>
-            <p class="text-2xl font-bold text-orange-600">{{ __('€580') }}</p>
+            <p class="text-2xl font-bold text-orange-600">{{ __('€') }}{{ $savinng_recommended }}</p>
         </div>
     </div>
 
@@ -51,11 +51,11 @@
         <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Progreso de Ahorro') }}</h2>
         <div class="relative pt-1">
             <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
-                <div style="width:{{ (200 / 35000) * 100 }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                <div style="width:{{ $progress }}%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
             </div>
             <div class="flex justify-between text-xs text-gray-600">
                 <span>{{ __('€0') }}</span>
-                <span>{{ __('€35,000') }}</span>
+                <span>{{ __('€') }}{{ $targetbalance_total }}</span>
             </div>
         </div>
     </div>
