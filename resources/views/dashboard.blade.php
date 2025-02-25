@@ -11,32 +11,32 @@
         <!-- Nómina -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Nómina') }}</h2>
-            <p class="text-2xl font-bold text-green-600">{{ __('€1,390.00') }}</p>
+            <p class="text-2xl font-bold text-green-600">{{ __('€') }}{{ $payroll->amount }}</p>
         </div>
         
         <!-- Gastos -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Gastos Totales') }}</h2>
-            <p class="text-2xl font-bold text-red-600">{{ __('€1,200.00') }}</p>
+            <p class="text-2xl font-bold text-red-600">{{ __('€') }}{{ $expense_total }}</p>
         </div>
         
         <!-- Entradas Extras -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Entradas Extras') }}</h2>
-            <p class="text-2xl font-bold text-blue-600">{{ __('€200.00') }}</p>
+            <p class="text-2xl font-bold text-blue-600">{{ __('€') }}{{ $extraincome_total }}</p>
         </div>
         
         <!-- Ahorros Actuales -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Ahorros Actuales') }}</h2>
-            <p class="text-2xl font-bold text-purple-600">{{ __('€200.00') }}</p>
+            <p class="text-2xl font-bold text-purple-600">{{ __('€') }}{{ $savings_total }}</p>
         </div>
         
         <!-- Objetivo de Ahorro -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Objetivo de Ahorro') }}</h2>
-            <p class="text-2xl font-bold text-indigo-600">{{ __('€35,000.00') }}</p>
-            <p class="text-sm text-gray-500 mt-2">{{ __('Para el 1 de enero de 2030') }}</p>
+            <p class="text-2xl font-bold text-indigo-600">{{ __('€') }}{{ $targetbalance_total }}</p>
+            <p class="text-sm text-gray-500 mt-2">{{ __('Para el ') }}{{ $deadline->deadline }}</p>
         </div>
         
         <!-- Ahorro Mensual Recomendado -->

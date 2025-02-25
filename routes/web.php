@@ -7,15 +7,29 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SavingController;
 use App\Http\Controllers\TargetBalanceController;
+use App\Models\Deadline;
 use App\Models\Expense;
+use App\Models\ExtraIncome;
+use App\Models\Payroll;
+use App\Models\Saving;
+use App\Models\TargetBalance;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// De momento crearé la lógica aquí para mostrar info en el dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $payroll = Payroll::where('user_id', Auth::user()->id)->latest()->first();
+    $expense_total = Expense::where('user_id', Auth::user()->id)->sum('amount');
+    $extraincome_total = ExtraIncome::where('user_id', Auth::user()->id)->sum('amount');
+    $savings_total = Saving::where('user_id', Auth::user()->id)->sum('amount');
+    $targetbalance_total = TargetBalance::where('user_id', Auth::user()->id)->sum('target_balance');
+    $deadline = Deadline::where('user_id', Auth::user()->id)->latest()->first();
+
+    return view('dashboard', compact('payroll', 'expense_total', 'extraincome_total', 'savings_total', 'targetbalance_total', 'deadline'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
