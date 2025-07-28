@@ -107,6 +107,8 @@ V2.0:
 
 ```
 
+---
+
 ## 🛠️ Tecnologías Usadas
 
 Laravel (backend)
@@ -122,6 +124,7 @@ PHP >= 8.1
 MySQL 8.0 o mayor
 Composer
 
+---
 
 ## 🚀 Cómo empezar
 
@@ -162,8 +165,12 @@ php artisan serve
 http://localhost:8000.
 ```
 
+---
+
 ## 📫 Contribuciones
 ¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
+---
 
 ## Haz un fork del repositorio.
 Crea una nueva rama (git checkout -b feature/nueva-caracteristica).
@@ -171,10 +178,16 @@ Realiza tus cambios y haz commit (git commit -m 'Añadir nueva característica')
 Haz push a la rama (git push origin feature/nueva-caracteristica).
 Crea un Pull Request.
 
+---
+
 ## 🔒 Seguridad
 Si descubres alguna vulnerabilidad de seguridad, por favor repórtala a your-email@example.com.
 
+---
+
 ## 📄 Licencia
 Este proyecto está licenciado bajo la Licencia MIT.
+
+---
 
 Gracias por tu interés en contribuir a este proyecto!
