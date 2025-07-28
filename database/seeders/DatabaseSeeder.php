@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Deadline::factory()->create([
-            'deadline' => '2030-01-01',
+            'deadline' => '2028-01-01',
             'user_id' => 1,
         ]);
 
@@ -54,12 +54,12 @@ class DatabaseSeeder extends Seeder
 
         Payroll::factory()->create([
             'name' => 'Nómina',
-            'amount' => 1390.00,
+            'amount' => 1690.00,
             'user_id' => 1,
         ]);
 
         Saving::factory()->create([
-            'amount' => 200.00,
+            'amount' => 4200.00,
             'user_id' => 1,
         ]);
 
