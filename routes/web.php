@@ -37,7 +37,7 @@ Route::get('/dashboard', function () {
     $deadline_date = Carbon::parse($deadline->deadline);
     $months = round($deadline_date->diffInMonths($now)) * -1;
     $target_balance_diference = $targetbalance_total - $savings_total;
-    $savinng_recommended = $target_balance_diference / $months;
+    $savinng_recommended = number_format($target_balance_diference / $months, 2);
 
     // Progresso de Ahorro
     $progress = ($savings_total / $targetbalance_total) * 100;
