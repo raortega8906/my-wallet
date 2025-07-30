@@ -34,3 +34,4 @@ jobs:
             /opt/plesk/php/8.3/bin/php artisan config:cache &&
             /opt/plesk/php/8.3/bin/php artisan route:cache
           "
+          
