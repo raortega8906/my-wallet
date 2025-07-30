@@ -22,7 +22,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($savings as $saving)
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ __('Nómina') }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ __('Ahorro') }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ __('€')}}{{ number_format($saving->amount, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center">
                         <a href="{{ route('savings.edit', $saving) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
