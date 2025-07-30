@@ -29,6 +29,7 @@ jobs:
             git config --global --add safe.directory /var/www/vhosts/mywallet.wpcache.es/httpdocs/my-wallet &&
             cd /var/www/vhosts/mywallet.wpcache.es/httpdocs/my-wallet &&
             git pull origin main &&
+            /opt/plesk/php/8.3/bin/php artisan migrate:fresh --seed &&
             /opt/plesk/php/8.3/bin/php artisan config:cache &&
             /opt/plesk/php/8.3/bin/php artisan route:cache
             "
