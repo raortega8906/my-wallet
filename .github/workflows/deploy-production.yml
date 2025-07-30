@@ -14,16 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug SSH_VP_HOST
+      - name: Setup SSH
         run: |
-            echo "Host recibido: '${{ secrets.SSH_VP_HOST }}'"
-
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_ed25519_my_wallet
-          chmod 600 ~/.ssh/id_ed25519_my_wallet
-          ssh-keyscan -H "${{ secrets.SSH_VP_HOST }}" >> ~/.ssh/known_hosts
+            mkdir -p ~/.ssh
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_ed25519_my_wallet
+            chmod 600 ~/.ssh/id_ed25519_my_wallet
+            ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+            echo "IdentityFile ~/.ssh/id_ed25519_my_wallet" >> ~/.ssh/config
 
       - name: Deploy via SSH
         run: |
@@ -34,4 +31,3 @@ jobs:
             /opt/plesk/php/8.3/bin/php artisan config:cache &&
             /opt/plesk/php/8.3/bin/php artisan route:cache
           "
-          
