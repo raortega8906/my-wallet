@@ -14,6 +14,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug SSH_VP_HOST
+        run: |
+            echo "Host recibido: '${{ secrets.SSH_VP_HOST }}'"
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
