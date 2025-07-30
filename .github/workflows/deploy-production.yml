@@ -26,6 +26,7 @@ jobs:
         if: success()
         run: |
             ssh -i ~/.ssh/id_ed25519_my_wallet -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_VP_HOST }} "
+            git config --global --add safe.directory /var/www/vhosts/mywallet.wpcache.es/httpdocs/my-wallet &&
             cd /var/www/vhosts/mywallet.wpcache.es/httpdocs/my-wallet &&
             git pull origin main &&
             /opt/plesk/php/8.3/bin/php artisan config:cache &&
