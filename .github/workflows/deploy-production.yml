@@ -19,7 +19,7 @@ jobs:
             mkdir -p ~/.ssh
             echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_ed25519_my_wallet
             chmod 600 ~/.ssh/id_ed25519_my_wallet
-            ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+            ssh-keyscan -H mywallet.wpcache.es >> ~/.ssh/known_hosts
             echo "IdentityFile ~/.ssh/id_ed25519_my_wallet" >> ~/.ssh/config
 
       - name: Deploy via SSH
