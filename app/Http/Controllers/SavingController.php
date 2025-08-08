@@ -26,7 +26,7 @@ class SavingController extends Controller
         $savings = Saving::all()->count();
 
         if ($savings > 0) {
-           return redirect()->route('savings.index');     
+           return redirect()->route('savings.index')->with('success', 'Ahorro ya existe');
         }
         else {
 
@@ -35,8 +35,8 @@ class SavingController extends Controller
             $validated['user_id'] = Auth::user()->id;
             
             Saving::create($validated);
-            
-            return redirect()->route('savings.index');
+
+            return redirect()->route('savings.index')->with('success', 'Ahorro creado');
         }
     }
 
@@ -52,13 +52,13 @@ class SavingController extends Controller
 
         $saving->update($validate);
 
-        return redirect()->route('savings.index');
+        return redirect()->route('savings.index')->with('success', 'Ahorro actualizado');
     }
 
     public function destroy (Saving $saving)
     {
         $saving->delete();
 
-        return redirect()->route('savings.index')->with('success', 'Ahorro eliminada');
+        return redirect()->route('savings.index')->with('success', 'Ahorro eliminado');
     }
 }

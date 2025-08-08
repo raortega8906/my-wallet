@@ -26,7 +26,7 @@ class TargetBalanceController extends Controller
         $targetbalances = TargetBalance::all()->count();
 
         if ($targetbalances > 0) {
-           return redirect()->route('targetbalances.index');     
+           return redirect()->route('targetbalances.index')->with('success', 'Saldo objetivo ya existe');
         }
         else {
             $validated = $request->validated();
@@ -34,8 +34,8 @@ class TargetBalanceController extends Controller
             $validated['user_id'] = Auth::user()->id;
             
             TargetBalance::create($validated);
-            
-            return redirect()->route('targetbalances.index');
+
+            return redirect()->route('targetbalances.index')->with('success', 'Saldo objetivo creado');
         }
     }
 
@@ -51,7 +51,7 @@ class TargetBalanceController extends Controller
 
         $targetbalance->update($validate);
 
-        return redirect()->route('targetbalances.index');
+        return redirect()->route('targetbalances.index')->with('success', 'Saldo objetivo actualizado');
     }
 
     public function destroy (TargetBalance $targetbalance)

@@ -30,7 +30,7 @@ class ExpenseController extends Controller
 
         Expense::create($validated);
 
-        return redirect()->route('expenses.index');
+        return redirect()->route('expenses.index')->with('success', 'Gasto creado');
     }
 
     public function edit (Expense $expense)
@@ -44,7 +44,7 @@ class ExpenseController extends Controller
 
         $expense->update($validated);
 
-        return redirect()->route('expenses.index');
+        return redirect()->route('expenses.index')->with('success', 'Gasto actualizado');
     }
 
     public function destroy (Expense $expense)

@@ -26,7 +26,7 @@ class DeadlineController extends Controller
         $deadlines = Deadline::all()->count();
 
         if ($deadlines > 0) {
-           return redirect()->route('deadlines.index');     
+           return redirect()->route('deadlines.index')->with('success', 'Fecha objetivo ya existente');
         }
         else {
 
@@ -34,8 +34,8 @@ class DeadlineController extends Controller
             $validated['user_id'] = Auth::user()->id;
             
             Deadline::create($validated);
-            
-            return redirect()->route('deadlines.index');
+
+            return redirect()->route('deadlines.index')->with('success', 'Fecha objetivo creada');
         }
     }
 
@@ -50,7 +50,7 @@ class DeadlineController extends Controller
 
         $deadline->update($validate);
 
-        return redirect()->route('deadlines.index');
+        return redirect()->route('deadlines.index')->with('success', 'Fecha objetivo actualizada');
     }
 
     public function destroy (Deadline $deadline)

@@ -26,7 +26,7 @@ class PayrollController extends Controller
         $payrolls = Payroll::all()->count();
 
         if ($payrolls > 0) {
-           return redirect()->route('payrolls.index');     
+           return redirect()->route('payrolls.index')->with('success', 'Nómina ya existente');
         }
         else {
 
@@ -35,8 +35,8 @@ class PayrollController extends Controller
             $validated['user_id'] = Auth::user()->id;
             
             Payroll::create($validated);
-            
-            return redirect()->route('payrolls.index');
+
+            return redirect()->route('payrolls.index')->with('success', 'Nómina creada');
         }
     }
 
@@ -52,7 +52,7 @@ class PayrollController extends Controller
 
         $payroll->update($validate);
 
-        return redirect()->route('payrolls.index');
+        return redirect()->route('payrolls.index')->with('success', 'Nómina actualizada');
     }
 
     public function destroy (Payroll $payroll)
