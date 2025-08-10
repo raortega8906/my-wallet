@@ -20,9 +20,9 @@
             <p class="text-2xl font-bold text-red-600">{{ __('€') }}{{ $expense_total }}</p>
         </div>
         
-        <!-- Entradas Extras -->
+        <!-- Excedente -->
         <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Entradas Extras') }}</h2>
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Excedente') }}</h2>
             <p class="text-2xl font-bold text-blue-600">{{ __('€') }}{{ $extraincome_total }}</p>
         </div>
         
@@ -43,6 +43,17 @@
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Ahorro Mensual Recomendado') }}</h2>
             <p class="text-2xl font-bold text-orange-600">{{ __('€') }}{{ $savinng_recommended }}</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Objetivo de Ahorro Posible') }}</h2>
+            <p class="text-2xl font-bold text-indigo-600">{{ __('€') }}{{ $savings_possible }}</p>
+            <p class="text-sm text-gray-500 mt-2">{{ __('Para el ') }}{{ $deadline->deadline }}</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Ahorro Posible') }}</h2>
+            <p class="text-2xl font-bold text-orange-600">{{ __('€') }}{{ $extraincome_total }}</p>
         </div>
     </div>
 
