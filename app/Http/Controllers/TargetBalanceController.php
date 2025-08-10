@@ -51,13 +51,13 @@ class TargetBalanceController extends Controller
 
         $targetbalance->update($validate);
 
-        return redirect()->route('targetbalances.index')->with('success', 'Saldo objetivo actualizado');
+        return redirect()->route('targetbalances.index')->with('error', 'Saldo objetivo actualizado');
     }
 
     public function destroy (TargetBalance $targetbalance)
     {
         $targetbalance->delete();
 
-        return redirect()->route('targetbalances.index')->with('success', 'Saldo objetivo eliminado');
+        return redirect()->route('targetbalances.index')->with('error', 'Saldo objetivo eliminado');
     }
 }

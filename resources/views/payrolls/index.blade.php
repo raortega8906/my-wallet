@@ -6,7 +6,20 @@
 
 @section('content')
 
-    <a href="{{ route('payrolls.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear Nómina') }}</a>
+    <a href="{{ route('payrolls.create') }}" class="text-blue-600 hover:text-blue-900 mr-3">{{ __('Crear Nómina') }}</a>
+
+    {{-- Mensaje de éxito --}}
+    @if (session('success'))
+        <div class="mt-4 text-sm text-green-600 p-2 border border-green-300 rounded-lg">
+            {{ session('success') }}
+        </div>
+    @endif
+    {{-- Mensaje de error --}}
+    @if (session('error'))
+        <div class="mt-4 text-sm text-red-600 p-2 border border-red-300 rounded-lg">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <!-- Nómina -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
@@ -29,7 +42,7 @@
                         <form action="{{ route('payrolls.delete', $payroll) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="alert('Nómina eliminada')">
+                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que deseas eliminar esta nómina?')">
                                 {{ __('Eliminar') }}
                             </button>
                         </form>

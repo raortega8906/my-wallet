@@ -26,7 +26,7 @@ class SavingController extends Controller
         $savings = Saving::all()->count();
 
         if ($savings > 0) {
-           return redirect()->route('savings.index')->with('success', 'Ahorro ya existe');
+           return redirect()->route('savings.index')->with('error', 'Ahorro ya existe');
         }
         else {
 
@@ -59,6 +59,6 @@ class SavingController extends Controller
     {
         $saving->delete();
 
-        return redirect()->route('savings.index')->with('success', 'Ahorro eliminado');
+        return redirect()->route('savings.index')->with('error', 'Ahorro eliminado');
     }
 }

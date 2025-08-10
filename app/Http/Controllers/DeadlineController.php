@@ -26,7 +26,7 @@ class DeadlineController extends Controller
         $deadlines = Deadline::all()->count();
 
         if ($deadlines > 0) {
-           return redirect()->route('deadlines.index')->with('success', 'Fecha objetivo ya existente');
+           return redirect()->route('deadlines.index')->with('error', 'Fecha objetivo ya existente');
         }
         else {
 
@@ -57,6 +57,6 @@ class DeadlineController extends Controller
     {
         $deadline->delete();
 
-        return redirect()->route('deadlines.index')->with('success', 'Fecha objetivo eliminada');
+        return redirect()->route('deadlines.index')->with('error', 'Fecha objetivo eliminada');
     }
 }

@@ -51,6 +51,6 @@ class ExpenseController extends Controller
     {
         $expense->delete();
 
-        return redirect()->route('expenses.index')->with('success', 'Gasto eliminado');
+        return redirect()->route('expenses.index')->with('error', 'Gasto eliminado');
     }
 }

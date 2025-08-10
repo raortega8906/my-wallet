@@ -6,7 +6,20 @@
 
 @section('content')
 
-    <a href="{{ route('savings.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear Ahorro') }}</a>
+    <a href="{{ route('savings.create') }}" class="text-blue-600 hover:text-blue-900 mr-3">{{ __('Crear Ahorro') }}</a>
+
+    {{-- Mensaje de éxito --}}
+    @if (session('success'))
+        <div class="mt-4 text-sm text-green-600 p-2 border border-green-300 rounded-lg">
+            {{ session('success') }}
+        </div>
+    @endif
+    {{-- Mensaje de error --}}
+    @if (session('error'))
+        <div class="mt-4 text-sm text-red-600 p-2 border border-red-300 rounded-lg">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <!-- Ahorros -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
@@ -29,7 +42,7 @@
                         <form action="{{ route('savings.delete', $saving) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="alert('Ahorro eliminado')">
+                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que deseas eliminar este ahorro?')">
                                 {{ __('Eliminar') }}
                             </button>
                         </form>

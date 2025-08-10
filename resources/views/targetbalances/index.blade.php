@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <a href="{{ route('targetbalances.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear saldo objetivo') }}</a>
+    <a href="{{ route('targetbalances.create') }}" class="text-blue-600 hover:text-blue-900 mr-3">{{ __('Crear saldo objetivo') }}</a>
 
     <!-- Ahorros -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
@@ -29,7 +29,7 @@
                         <form action="{{ route('targetbalances.delete', $targetbalance) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="alert('Saldo objetivo eliminado')">
+                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que deseas eliminar este plazo objetivo?')">
                                 {{ __('Eliminar') }}
                             </button>
                         </form>

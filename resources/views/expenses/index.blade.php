@@ -6,7 +6,20 @@
 
 @section('content')
 
-    <a href="{{ route('expenses.create') }}" class="text-green-600 hover:text-green-900 mr-3">{{ __('Crear gasto') }}</a>
+    <a href="{{ route('expenses.create') }}" class="text-blue-600 hover:text-blue-900 mr-3">{{ __('Crear gasto') }}</a>
+
+    {{-- Mensaje de éxito --}}
+    @if (session('success'))
+        <div class="mt-4 text-sm text-green-600 p-2 border border-green-300 rounded-lg">
+            {{ session('success') }}
+        </div>
+    @endif
+    {{-- Mensaje de error --}}
+    @if (session('error'))
+        <div class="mt-4 text-sm text-red-600 p-2 border border-red-300 rounded-lg">
+            {{ session('error') }}
+        </div>
+    @endif
     
     <!-- Gastos -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
@@ -31,7 +44,7 @@
                         <form action="{{ route('expenses.delete', $expenses) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button href="{{ route('expenses.delete', $expense) }}" class="text-red-600 hover:text-red-900">
+                            <button href="{{ route('expenses.delete', $expense) }}" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que deseas eliminar este gasto?')">
                                 {{ __('Eliminar') }}
                             </button>
                         </form>

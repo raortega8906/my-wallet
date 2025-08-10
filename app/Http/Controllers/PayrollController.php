@@ -26,7 +26,7 @@ class PayrollController extends Controller
         $payrolls = Payroll::all()->count();
 
         if ($payrolls > 0) {
-           return redirect()->route('payrolls.index')->with('success', 'Nómina ya existente');
+           return redirect()->route('payrolls.index')->with('error', 'Nómina ya existente');
         }
         else {
 

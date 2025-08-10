@@ -28,7 +28,7 @@ class ExtraIncomeController extends Controller
 
         ExtraIncome::create($validated);
 
-        return redirect()->route('extraincomes.index')->with('success', 'Ingreso extra creado');
+        return redirect()->route('extraincomes.index')->with('error', 'Ingreso extra creado');
     }
 
     public function edit (ExtraIncome $extraincome)
@@ -49,6 +49,6 @@ class ExtraIncomeController extends Controller
     {
         $extraincome->delete();
 
-        return redirect()->route('extraincomes.index')->with('success', 'Gasto eliminado');
+        return redirect()->route('extraincomes.index')->with('error', 'Gasto eliminado');
     }
 }
