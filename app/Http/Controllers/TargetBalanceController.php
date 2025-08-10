@@ -26,7 +26,7 @@ class TargetBalanceController extends Controller
         $targetbalances = TargetBalance::all()->count();
 
         if ($targetbalances > 0) {
-           return redirect()->route('targetbalances.index')->with('success', 'Saldo objetivo ya existe');
+           return redirect()->route('targetbalances.index')->with('error', 'Saldo objetivo ya existe');
         }
         else {
             $validated = $request->validated();

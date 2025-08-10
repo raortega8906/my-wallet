@@ -28,7 +28,7 @@ class ExtraIncomeController extends Controller
 
         ExtraIncome::create($validated);
 
-        return redirect()->route('extraincomes.index')->with('error', 'Ingreso extra creado');
+        return redirect()->route('extraincomes.index')->with('success', 'Ingreso extra creado');
     }
 
     public function edit (ExtraIncome $extraincome)

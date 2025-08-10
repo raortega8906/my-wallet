@@ -8,6 +8,19 @@
 
     <a href="{{ route('targetbalances.create') }}" class="text-blue-600 hover:text-blue-900 mr-3">{{ __('Crear saldo objetivo') }}</a>
 
+    {{-- Mensaje de éxito --}}
+    @if (session('success'))
+        <div class="mt-4 text-sm text-green-600 p-2 border border-green-300 rounded-lg">
+            {{ session('success') }}
+        </div>
+    @endif
+    {{-- Mensaje de error --}}
+    @if (session('error'))
+        <div class="mt-4 text-sm text-red-600 p-2 border border-red-300 rounded-lg">
+            {{ session('error') }}
+        </div>
+    @endif
+
     <!-- Ahorros -->
     <div class="mt-12 bg-white rounded-lg shadow p-6">
         <h2 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Gestión de saldo objetivo') }}</h2>
