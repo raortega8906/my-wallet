@@ -80,7 +80,7 @@
                             class="block py-2 px-4 rounded transition duration-200 
                                     hover:bg-gray-100 hover:text-gray-800
                                     {{ request()->routeIs('expenses.*') ? 'bg-gray-100 text-gray-800' : '' }}">
-                                {{ __('Gastos') }}
+                                {{ __('Gastos Fijos') }}
                             </a>
                         </li>
                         <li>
