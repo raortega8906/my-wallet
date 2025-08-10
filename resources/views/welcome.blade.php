@@ -85,8 +85,8 @@
     <div class="bg-white rounded-lg shadow-lg p-8 my-16 mx-4">
         <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">{{ __('Calculadora de Ahorros Inteligentes') }}</h2>
         <div class="flex flex-wrap -mx-4">
-            <div class="w-full md:w-1/2 px-4 mb-8">
-                <img src="{{ asset('./assets/images/dashboard.webp') }}" alt="{{ __('Ilustración de la Calculadora de Ahorros') }}" class="rounded-lg shadow-md">
+            <div class="flex items-center w-full md:w-1/2 px-4">
+                <img src="{{ asset('./assets/images/mockup.webp') }}" alt="{{ __('Ilustración de la Calculadora de Ahorros') }}" class="rounded-lg shadow-md">
             </div>
             <div class="w-full md:w-1/2 px-4">
                 <h3 class="text-2xl font-semibold text-gray-700 mb-4">{{ __('Alcanza tus metas de ahorro') }}</h3>
