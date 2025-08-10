@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
         TargetBalance::factory()->create([
             'target_balance' => 35000.00,
             'user_id' => 1,
-        ]); 
+        ]);
 
         // Comentar usuario tester hasta que se agregue el panel de administración
         // User::factory()->create([
