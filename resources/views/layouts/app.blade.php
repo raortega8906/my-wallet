@@ -45,28 +45,91 @@
                 <span class="text-2xl font-extrabold">{{ __('My Wallet') }}</span>
             </a>
             
-            <nav>
-                <a href="{{ route('dashboard') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+            {{-- Si no tienes Alpine.js cargado aún, añade esto en tu layout --}}
+            <script src="//unpkg.com/alpinejs" defer></script>
+
+            <nav class="space-y-1" x-data="{ openGastos: {{ request()->routeIs('expenses.*','extraincomes.*') ? 'true' : 'false' }}, openAhorros: {{ request()->routeIs('savings.*','targetbalances.*','deadlines.*') ? 'true' : 'false' }} }">
+                {{-- Dashboard --}}
+                <a href="{{ route('dashboard') }}"
+                class="block py-2.5 px-4 rounded transition duration-200 
+                        hover:bg-gray-100 hover:text-gray-800
+                        {{ request()->routeIs('dashboard') ? 'bg-gray-100 text-gray-800' : '' }}">
                     {{ __('Dashboard') }}
                 </a>
-                <a href="{{ route('payrolls.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
+
+                {{-- Nómina --}}
+                <a href="{{ route('payrolls.index') }}"
+                class="block py-2.5 px-4 rounded transition duration-200 
+                        hover:bg-gray-100 hover:text-gray-800
+                        {{ request()->routeIs('payrolls.*') ? 'bg-gray-100 text-gray-800' : '' }}">
                     {{ __('Nómina') }}
                 </a>
-                <a href="{{ route('savings.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
-                    {{ __('Ahorros') }}
-                </a>
-                <a href="{{ route('expenses.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
-                    {{ __('Gastos') }}
-                </a>
-                <a href="{{ route('extraincomes.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
-                    {{ __('Ingresos Adicionales') }}
-                </a>
-                <a href="{{ route('targetbalances.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
-                    {{ __('Saldo Objetivo') }}
-                </a>
-                <a href="{{ route('deadlines.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800">
-                    {{ __('Plazo Objetivo') }}
-                </a>
+
+                {{-- Control de gastos (desplegable) --}}
+                <div>
+                    <button @click="openGastos = !openGastos"
+                            class="flex justify-between items-center w-full py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800 {{ request()->routeIs('expenses.*','extraincomes.*') }}">
+                        <span>{{ __('Control de gastos') }}</span>
+                        <svg :class="{ 'rotate-180': openGastos }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul x-show="openGastos" x-transition class="ml-4 mt-1">
+                        <li>
+                            <a href="{{ route('expenses.index') }}"
+                            class="block py-2 px-4 rounded transition duration-200 
+                                    hover:bg-gray-100 hover:text-gray-800
+                                    {{ request()->routeIs('expenses.*') ? 'bg-gray-100 text-gray-800' : '' }}">
+                                {{ __('Gastos') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('extraincomes.index') }}"
+                            class="block py-2 px-4 rounded transition duration-200 
+                                    hover:bg-gray-100 hover:text-gray-800
+                                    {{ request()->routeIs('extraincomes.*') ? 'bg-gray-100 text-gray-800' : '' }}">
+                                {{ __('Ingresos Adicionales') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                {{-- Objetivos ahorros (desplegable) --}}
+                <div>
+                    <button @click="openAhorros = !openAhorros"
+                            class="flex justify-between items-center w-full py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800 {{ request()->routeIs('savings.*','targetbalances.*','deadlines.*') }}">
+                        <span>{{ __('Objetivos de ahorros') }}</span>
+                        <svg :class="{ 'rotate-180': openAhorros }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul x-show="openAhorros" x-transition class="ml-4 mt-1">
+                        <li>
+                            <a href="{{ route('savings.index') }}"
+                            class="block py-2 px-4 rounded transition duration-200 
+                                    hover:bg-gray-100 hover:text-gray-800
+                                    {{ request()->routeIs('savings.*') ? 'bg-gray-100 text-gray-800' : '' }}">
+                                {{ __('Ahorros') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('targetbalances.index') }}"
+                            class="block py-2 px-4 rounded transition duration-200 
+                                    hover:bg-gray-100 hover:text-gray-800
+                                    {{ request()->routeIs('targetbalances.*') ? 'bg-gray-100 text-gray-800' : '' }}">
+                                {{ __('Saldo Objetivo') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('deadlines.index') }}"
+                            class="block py-2 px-4 rounded transition duration-200 
+                                    hover:bg-gray-100 hover:text-gray-800
+                                    {{ request()->routeIs('deadlines.*') ? 'bg-gray-100 text-gray-800' : '' }}">
+                                {{ __('Plazo Objetivo') }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 {{-- Definir si habrá un panel de administración --}}
                 {{-- @if (Auth::check() && Auth::user()->is_admin)
                     <div class="py-3 mt-6">
