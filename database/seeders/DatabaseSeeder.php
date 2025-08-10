@@ -48,18 +48,18 @@ class DatabaseSeeder extends Seeder
         ExtraIncome::factory()->create([
             'name' => 'Ingreso',
             'description' => 'Ingreso de hostelería',
-            'amount' => 100.00,
+            'amount' => 200.00,
             'user_id' => 1,
         ]);
 
         Payroll::factory()->create([
             'name' => 'Nómina',
-            'amount' => 1690.00,
+            'amount' => 2000.00,
             'user_id' => 1,
         ]);
 
         Saving::factory()->create([
-            'amount' => 4200.00,
+            'amount' => 10200.00,
             'user_id' => 1,
         ]);
 
