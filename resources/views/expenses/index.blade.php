@@ -44,7 +44,7 @@
                         <form action="{{ route('expenses.delete', $expenses) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button href="{{ route('expenses.delete', $expense) }}" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que deseas eliminar este gasto?')">
+                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que deseas eliminar este gasto?')">
                                 {{ __('Eliminar') }}
                             </button>
                         </form>
