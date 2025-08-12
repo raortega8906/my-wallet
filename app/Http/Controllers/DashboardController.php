@@ -14,27 +14,40 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        // Datos para el dashboard
-        $payroll = Payroll::where('user_id', Auth::user()->id)->latest()->first();
-        $expense_total = Expense::where('user_id', Auth::user()->id)->sum('amount');
-        $extraincome_total = number_format($payroll->amount - $expense_total, 2);
-        $savings_total = Saving::where('user_id', Auth::user()->id)->sum('amount');
-        $targetbalance_total = TargetBalance::where('user_id', Auth::user()->id)->sum('target_balance');
-        $deadline = Deadline::where('user_id', Auth::user()->id)->latest()->first();
+        $payroll = Payroll::where('user_id', Auth::id())->latest()->first();
+        $expense_total = Expense::where('user_id', Auth::id())->sum('amount');
 
-        // Ahorro Mensual Recomendado
+        // Sin number_format aquí, mantener como float
+        $extraincome_total = $payroll->amount - $expense_total;
+        $savings_total = Saving::where('user_id', Auth::id())->sum('amount');
+        $targetbalance_total = TargetBalance::where('user_id', Auth::id())->sum('target_balance');
+        $deadline = Deadline::where('user_id', Auth::id())->latest()->first();
+
+        // Calcular meses (evitar división por 0)
         $now = Carbon::now();
         $deadline_date = Carbon::parse($deadline->deadline);
-        $months = round($deadline_date->diffInMonths($now)) * -1;
+        $months = max($deadline_date->diffInMonths($now) * -1, 1); // mínimo 1 mes
+
         $target_balance_diference = $targetbalance_total - $savings_total;
-        $savinng_recommended = number_format($target_balance_diference / $months, 2);
+        $savinng_recommended = $target_balance_diference / $months;
 
         // Ahorro mensual posible
-        $savings_possible = number_format($extraincome_total * $months + $savings_total, 2);
+        $savings_possible = ($extraincome_total * $months) + $savings_total;
 
-        // Progresso de Ahorro
-        $progress = ($savings_total / $targetbalance_total) * 100;
+        // Progreso
+        $progress = ($targetbalance_total > 0) ? ($savings_total / $targetbalance_total) * 100 : 0;
 
-        return view('dashboard', compact('payroll', 'expense_total', 'extraincome_total', 'savings_total', 'targetbalance_total', 'deadline', 'savinng_recommended', 'progress', 'savings_possible'));
+        // Formatear SOLO antes de pasar a la vista
+        return view('dashboard', [
+            'payroll'              => $payroll,
+            'expense_total'        => number_format($expense_total, 2),
+            'extraincome_total'    => number_format($extraincome_total, 2),
+            'savings_total'        => number_format($savings_total, 2),
+            'targetbalance_total'  => number_format($targetbalance_total, 2),
+            'deadline'             => $deadline,
+            'savinng_recommended'  => number_format($savinng_recommended, 2),
+            'progress'             => number_format($progress, 2),
+            'savings_possible'     => number_format($savings_possible, 2),
+        ]);
     }
 }
