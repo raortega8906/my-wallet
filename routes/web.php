@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeadlineController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ExtraIncomeController;
@@ -7,14 +8,6 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SavingController;
 use App\Http\Controllers\TargetBalanceController;
-use App\Models\Deadline;
-use App\Models\Expense;
-use App\Models\ExtraIncome;
-use App\Models\Payroll;
-use App\Models\Saving;
-use App\Models\TargetBalance;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,34 +17,17 @@ Route::get('/', function () {
 // De momento crearé la lógica aquí para mostrar info en el dashboard
 Route::get('/dashboard', function () {
 
-    // Datos para el dashboard
-    $payroll = Payroll::where('user_id', Auth::user()->id)->latest()->first();
-    $expense_total = Expense::where('user_id', Auth::user()->id)->sum('amount');
-    $extraincome_total = number_format($payroll->amount - $expense_total, 2);
-    $savings_total = Saving::where('user_id', Auth::user()->id)->sum('amount');
-    $targetbalance_total = TargetBalance::where('user_id', Auth::user()->id)->sum('target_balance');
-    $deadline = Deadline::where('user_id', Auth::user()->id)->latest()->first();
-
-    // Ahorro Mensual Recomendado
-    $now = Carbon::now();
-    $deadline_date = Carbon::parse($deadline->deadline);
-    $months = round($deadline_date->diffInMonths($now)) * -1;
-    $target_balance_diference = $targetbalance_total - $savings_total;
-    $savinng_recommended = number_format($target_balance_diference / $months, 2);
-
-    // Ahorro mensual posible
-    $savings_possible = number_format($extraincome_total * $months + $savings_total, 2);
-
-    // Progresso de Ahorro
-    $progress = ($savings_total / $targetbalance_total) * 100;
-
-    return view('dashboard', compact('payroll', 'expense_total', 'extraincome_total', 'savings_total', 'targetbalance_total', 'deadline', 'savinng_recommended', 'progress', 'savings_possible'));
-})->middleware(['auth', 'verified'])->name('dashboard');
+    
+})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     // Rutas Plazos
     Route::get('deadlines', [DeadlineController::class, 'index'])->name('deadlines.index');
