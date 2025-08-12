@@ -17,7 +17,6 @@ class DashboardController extends Controller
         $payroll = Payroll::where('user_id', Auth::id())->latest()->first();
         $expense_total = Expense::where('user_id', Auth::id())->sum('amount');
 
-        // Sin number_format aquí, mantener como float
         $extraincome_total = $payroll->amount - $expense_total;
         $savings_total = Saving::where('user_id', Auth::id())->sum('amount');
         $targetbalance_total = TargetBalance::where('user_id', Auth::id())->sum('target_balance');
@@ -37,7 +36,7 @@ class DashboardController extends Controller
         // Progreso
         $progress = ($targetbalance_total > 0) ? ($savings_total / $targetbalance_total) * 100 : 0;
 
-        // Formatear SOLO antes de pasar a la vista
+        // Formatear antes de pasar a la vista
         return view('dashboard', [
             'payroll'              => $payroll,
             'expense_total'        => number_format($expense_total, 2),
