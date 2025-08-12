@@ -48,7 +48,12 @@
             {{-- Si no tienes Alpine.js cargado aún, añade esto en tu layout --}}
             <script src="//unpkg.com/alpinejs" defer></script>
 
-            <nav class="space-y-1" x-data="{ openGastos: {{ request()->routeIs('expenses.*','extraincomes.*') ? 'true' : 'false' }}, openAhorros: {{ request()->routeIs('savings.*','targetbalances.*','deadlines.*') ? 'true' : 'false' }} }">
+            <nav class="space-y-1" 
+                x-data="{ 
+                    openGastos: {{ request()->routeIs('expenses.*') ? 'true' : 'false' }},
+                    openAhorros: {{ request()->routeIs('savings.*','targetbalances.*','deadlines.*') ? 'true' : 'false' }},
+                    openIngresos: {{ request()->routeIs('extraincomes.*') ? 'true' : 'false' }}
+                }">
                 {{-- Dashboard --}}
                 <a href="{{ route('dashboard') }}"
                 class="block py-2.5 px-4 rounded transition duration-200 
@@ -68,7 +73,7 @@
                 {{-- Control de gastos (desplegable) --}}
                 <div>
                     <button @click="openGastos = !openGastos"
-                            class="flex justify-between items-center w-full py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800 {{ request()->routeIs('expenses.*','extraincomes.*') }}">
+                            class="flex justify-between items-center w-full py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800 {{ request()->routeIs('expenses.*') }}">
                         <span>{{ __('Control de gastos') }}</span>
                         <svg :class="{ 'rotate-180': openGastos }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -83,6 +88,19 @@
                                 {{ __('Gastos Fijos') }}
                             </a>
                         </li>
+                    </ul>
+                </div>
+
+                {{-- Ingresos (desplegable) --}}
+                <div>
+                    <button @click="openIngresos = !openIngresos"
+                            class="flex justify-between items-center w-full py-2.5 px-4 rounded transition duration-200 hover:bg-gray-100 hover:text-gray-800 {{ request()->routeIs('extraincomes.*') }}">
+                        <span>{{ __('Ingresos') }}</span>
+                        <svg :class="{ 'rotate-180': openIngresos }" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <ul x-show="openIngresos" x-transition class="ml-4 mt-1">
                         <li>
                             <a href="{{ route('extraincomes.index') }}"
                             class="block py-2 px-4 rounded transition duration-200 
@@ -130,6 +148,15 @@
                         </li>
                     </ul>
                 </div>
+
+                {{-- Mi perfil --}}
+                <a href="{{ route('profile.edit') }}"
+                class="block py-2.5 px-4 rounded transition duration-200 
+                        hover:bg-gray-100 hover:text-gray-800
+                        {{ request()->routeIs('profile.*') ? 'bg-gray-100 text-gray-800' : '' }}">
+                    {{ __('Mi perfil') }}
+                </a>
+
                 {{-- Definir si habrá un panel de administración --}}
                 {{-- @if (Auth::check() && Auth::user()->is_admin)
                     <div class="py-3 mt-6">
