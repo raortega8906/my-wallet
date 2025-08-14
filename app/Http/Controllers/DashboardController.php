@@ -22,7 +22,6 @@ class DashboardController extends Controller
         $targetbalance_total = TargetBalance::where('user_id', Auth::id())->sum('target_balance');
         $deadline = Deadline::where('user_id', Auth::id())->latest()->first();
 
-        // Calcular meses (evitar división por 0)
         $now = Carbon::now();
         $deadline_date = Carbon::parse($deadline->deadline);
         $months = max($deadline_date->diffInMonths($now) * -1, 1); // mínimo 1 mes
