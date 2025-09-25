@@ -76,7 +76,7 @@
 
         <div class="text-center mt-8">
             <a href="{{ route('register') }}" class="bg-primary text-white font-bold py-2 px-4 rounded-full transition duration-300">
-                {{ __('Comenzar ahora') }}
+                {{ __('Comenzar ahora !!!!') }}
             </a>
         </div>
     </div>
