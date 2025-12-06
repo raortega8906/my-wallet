@@ -41,7 +41,7 @@
                     <td class="px-6 py-4 whitespace-nowrap">{{ __('€')}}{{ number_format($expense->amount, 2) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex items-center">
                         <a href="{{ route('expenses.edit', $expense) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('Editar') }}</a>
-                        <form action="{{ route('expenses.delete', $expenses) }}" method="POST">
+                        <form action="{{ route('expenses.delete', $expense) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('¿Estás seguro de que deseas eliminar este gasto?')">
