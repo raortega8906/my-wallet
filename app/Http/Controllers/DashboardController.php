@@ -14,10 +14,13 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $payroll = Payroll::where('user_id', Auth::id())->latest()->first();
+        // $payroll = Payroll::where('user_id', Auth::id())->latest()->first();
+        $payroll = Payroll::where('user_id', Auth::id())->sum('amount');
+        // dd($payroll);
         $expense_total = Expense::where('user_id', Auth::id())->sum('amount');
 
-        $extraincome_total = $payroll->amount - $expense_total;
+        // $extraincome_total = $payroll->amount - $expense_total;
+        $extraincome_total = $payroll - $expense_total;
         $savings_total = Saving::where('user_id', Auth::id())->sum('amount');
         $targetbalance_total = TargetBalance::where('user_id', Auth::id())->sum('target_balance');
         $deadline = Deadline::where('user_id', Auth::id())->latest()->first();

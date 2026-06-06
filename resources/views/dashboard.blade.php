@@ -11,7 +11,8 @@
         <!-- Nómina -->
         <div class="bg-white rounded-lg shadow p-6">
             <h2 class="text-xl font-semibold text-gray-700 mb-4">{{ __('Nómina') }}</h2>
-            <p class="text-2xl font-bold text-green-600">{{ __('€') }}{{ $payroll->amount }}</p>
+            {{-- <p class="text-2xl font-bold text-green-600">{{ __('€') }}{{ $payroll->amount }}</p> --}}
+            <p class="text-2xl font-bold text-green-600">{{ __('€') }}{{ $payroll }}</p>
         </div>
         
         <!-- Gastos -->
